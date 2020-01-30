@@ -4,9 +4,25 @@
 .ant-layout-header {
     padding: 0 20px;
 }
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.header .trigger {
+    margin-right: 10px;
+}
+
+.brand-title {
+    margin: 0 auto;
+}
+
+.header .trigger,
 .brand-title {
     color: #fff;
+    vertical-align: middle;
 }
+
 .main-layout {
     min-height: calc(100vh - 64px);
 }

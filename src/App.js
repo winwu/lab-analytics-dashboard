@@ -26,16 +26,16 @@ function Users() {
 
 
 class App extends React.Component {
-    /*
     state = {
         collapsed: false,
     };
-    
-    onCollapse = collapsed => {
-        console.log(collapsed);
-        this.setState({ collapsed });
+
+    toggle = () => {
+        this.setState({
+            collapsed: !this.state.collapsed,
+        });
     };
-    */
+    
 
     render() {
         return (
@@ -70,7 +70,12 @@ class App extends React.Component {
                     <Header className="header">
                         <Row gutter={8}>
                             <Col xs={4} md={4}>
-                                <h1 className="brand-title">Lab Analytics Result</h1>
+                                <Icon
+                                    className="trigger d-inline-block"
+                                    type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                    onClick={this.toggle}
+                                />
+                                <h1 className="brand-title d-inline-block">Lab Analytics Result</h1>
                             </Col>
                             <Col xs={20} md={20}>
                                 <Menu
@@ -88,9 +93,9 @@ class App extends React.Component {
                     </Header>
                     <Layout className="main-layout">
                         <Sider
-                            // collapsible
-                            // collapsed={this.state.collapsed}
-                            // onCollapse={this.onCollapse}
+                            trigger={null} 
+                            collapsible
+                            collapsed={this.state.collapsed}
                             width={200}
                             >
                             <Menu
