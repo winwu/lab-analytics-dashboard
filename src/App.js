@@ -32,7 +32,6 @@ class App extends React.Component {
         });
     };
     
-
     render() {
         return (
             <Router>
@@ -47,16 +46,21 @@ class App extends React.Component {
                                 />
                                 <Link to="/dashboard" className="brand-title d-inline-block">Lab Analytics Result</Link>
                             </Col>
-                            <Col xs={18} md={17}>
-                                <Menu
-                                    theme="dark"
-                                    mode="horizontal"
-                                    defaultSelectedKeys={['2']}
-                                    style={{ lineHeight: '64px' }}>
-                                    <Menu.Item key="1">nav 1</Menu.Item>
-                                    <Menu.Item key="2">nav 2</Menu.Item>
-                                    <Menu.Item key="3">nav 3</Menu.Item>
-                                </Menu>
+                            <Col xs={18} md={19}>
+                                <Row type="flex" justify="end">
+                                    <Col>
+                                        <Menu
+                                            theme="dark"
+                                            mode="horizontal"
+                                            defaultSelectedKeys={['2']}
+                                            style={{ lineHeight: '64px' }}>
+                                            <Menu.Item key="1">nav 1</Menu.Item>
+                                            <Menu.Item key="2">nav 2</Menu.Item>
+                                            <Menu.Item key="3">nav 3</Menu.Item>
+                                            <Menu.Item key="4"><Icon type="logout" />Logout</Menu.Item>
+                                        </Menu>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                     </Header>
