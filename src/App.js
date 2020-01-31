@@ -12,6 +12,7 @@ import {
 import Dashboard from './pages/dashboard';
 import EegUsers from './pages/eeg/users';
 import EegCategory from './pages/eeg/category';
+import PADList from './pages/questionnaire/pad';
 
 import 'antd/dist/antd.css';
 import './App.css';
@@ -89,9 +90,9 @@ class App extends React.Component {
                                 </SubMenu>
                                 <SubMenu
                                     key="sub2"
-                                    title={<span><Icon type="user" /> <span>Questionnaire</span></span>}>
+                                    title={<span><Icon type="user" /><span>Questionnaire</span></span>}>
                                     <Menu.Item key="3">
-                                        <span>PAD List</span>
+                                        <Link to="/questionnaire/pad">PAD List</Link>
                                     </Menu.Item>
                                 </SubMenu>
                                 <Menu.Item key="4">
@@ -121,6 +122,9 @@ class App extends React.Component {
                                     </Route>
                                     <Route path="/eeg/category">
                                         <EegCategory />
+                                    </Route>
+                                    <Route path="/questionnaire/pad">
+                                        <PADList />
                                     </Route>
                                     <Route path='/'>
                                         <Redirect to="/dashboard" />
