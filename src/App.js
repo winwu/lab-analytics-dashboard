@@ -9,20 +9,16 @@ import {
     Redirect
 } from "react-router-dom";
 
+import Dashboard from './pages/dashboard';
+import EegUsers from './pages/eeg/users';
+import EegCategory from './pages/eeg/category';
+
 import 'antd/dist/antd.css';
 import './App.css';
 // import logo from './logo.svg';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
-
-function Dashboard() {
-    return <h2>Dashboard</h2>;
-}
-  
-function Users() {
-    return <h2>Users</h2>;
-}
 
 
 class App extends React.Component {
@@ -40,50 +36,23 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-              {/* <div>
-                <nav>
-                  <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/users">Users</Link>
-                    </li>
-                  </ul>
-                </nav>
-                    <Switch>
-                        <Route path="/dashboard">
-                            <Dashboard />
-                        </Route>
-                        <Route path="/users">
-                            <Users />
-                        </Route>
-                        <Route path='/'>
-                            <Redirect to="/dashboard" />
-                        </Route>
-                    </Switch>
-                </div> */}
                 <Layout>
                     <Header className="header">
                         <Row gutter={8}>
-                            <Col xs={4} md={4}>
+                            <Col xs={6} md={5}>
                                 <Icon
                                     className="trigger d-inline-block"
                                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                     onClick={this.toggle}
                                 />
-                                <h1 className="brand-title d-inline-block">Lab Analytics Result</h1>
+                                <Link to="/dashboard" className="brand-title d-inline-block">Lab Analytics Result</Link>
                             </Col>
-                            <Col xs={20} md={20}>
+                            <Col xs={18} md={17}>
                                 <Menu
                                     theme="dark"
                                     mode="horizontal"
                                     defaultSelectedKeys={['2']}
-                                    style={{ lineHeight: '64px' }}
-                                >
+                                    style={{ lineHeight: '64px' }}>
                                     <Menu.Item key="1">nav 1</Menu.Item>
                                     <Menu.Item key="2">nav 2</Menu.Item>
                                     <Menu.Item key="3">nav 3</Menu.Item>
@@ -103,31 +72,25 @@ class App extends React.Component {
                                 mode="inline"
                                 defaultSelectedKeys={['1']}
                                 defaultOpenKeys={['sub1']}
-                                style={{ height: '100%', borderRight: 0 }}
-                            >
+                                style={{ height: '100%', borderRight: 0 }}>
                                 <SubMenu
                                     key="sub1"
-                                    title={<span><Icon type="cloud-server" /><span>Egg Data </span></span>}
-                                >
+                                    title={<span><Icon type="cloud-server" /><span>EEG Data </span></span>}>
                                     <Menu.Item key="1">
-                                        <span>By User</span>
+                                        <Link to="/eeg/users">By User</Link>
                                     </Menu.Item>
                                     <Menu.Item key="2">
-                                        <span>By Category</span>
+                                        <Link to="/eeg/category">By Category</Link>
                                     </Menu.Item>
                                 </SubMenu>
                                 <SubMenu
                                     key="sub2"
-                                    title={<span><Icon type="user" /> <span>Questionnaire</span></span>}
-                                >
+                                    title={<span><Icon type="user" /> <span>Questionnaire</span></span>}>
                                     <Menu.Item key="3">
-                                        <span>All</span>
-                                    </Menu.Item>
-                                    <Menu.Item key="4">
-                                        <span>PAD Result</span>
+                                        <span>PAD List</span>
                                     </Menu.Item>
                                 </SubMenu>
-                                <Menu.Item key="5">
+                                <Menu.Item key="4">
                                     <Icon type="book" /><span>Category Info</span>
                                 </Menu.Item>
                             </Menu>
@@ -144,12 +107,24 @@ class App extends React.Component {
                                     padding: 24,
                                     margin: 0,
                                     minHeight: 280,
-                                }}
-                            >
-                                Content
+                                }}>
+                                <Switch>
+                                    <Route path="/dashboard">
+                                        <Dashboard />
+                                    </Route>
+                                    <Route path="/eeg/users">
+                                        <EegUsers />
+                                    </Route>
+                                    <Route path="/eeg/category">
+                                        <EegCategory />
+                                    </Route>
+                                    <Route path='/'>
+                                        <Redirect to="/dashboard" />
+                                    </Route>
+                                </Switch>
                             </Content>
                             <Footer style={{ textAlign: 'center' }}>
-                                Lab Analytics Result &copy;2020 Created by Win Wu. The UI framework is base on <a href="https://ant.design/" target="_blank">Ant Design</a>
+                                Lab Analytics Result &copy;2020 Created by Win Wu. The UI framework is base on <a href="https://ant.design/" target="_blank" rel="noopener noreferrer">Ant Design</a>
                             </Footer>
                         </Layout>
                     </Layout>
