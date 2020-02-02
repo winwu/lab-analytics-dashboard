@@ -12,11 +12,15 @@ class LeftMenu extends React.Component {
                 <Menu
                     theme="light"
                     mode="inline"
-                    // defaultSelectedKeys={['1']}
-                    // defaultOpenKeys={['sub1']}
                     defaultSelectedKeys={['/']}
                     selectedKeys={[location.pathname]}
                     style={{ height: '100%', borderRight: 0 }}>
+                    <Menu.Item key="/dashboard">
+                        <NavLink to="/dashboard">
+                            <Icon type="dashboard" />
+                            <span>Dashboard</span>
+                        </NavLink>
+                    </Menu.Item>
                     <SubMenu
                         key="/eeg"
                         title={
