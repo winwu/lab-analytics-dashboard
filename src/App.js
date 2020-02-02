@@ -1,14 +1,14 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Row, Col } from 'antd';
-
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
+    NavLink,
     Redirect
 } from "react-router-dom";
 
+import LeftMenu from './components/LeftMenu';
 import Dashboard from './pages/dashboard';
 import EegUsers from './pages/eeg/users';
 import EegCategory from './pages/eeg/category';
@@ -18,8 +18,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 // import logo from './logo.svg';
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider, Footer } = Layout;
+const { Header, Content, Footer } = Layout;
 
 
 class App extends React.Component {
@@ -32,7 +31,7 @@ class App extends React.Component {
             collapsed: !this.state.collapsed,
         });
     };
-    
+
     render() {
         return (
             <Router>
@@ -45,7 +44,7 @@ class App extends React.Component {
                                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                     onClick={this.toggle}
                                 />
-                                <Link to="/dashboard" className="brand-title d-inline-block">Lab Analytics Result</Link>
+                                <NavLink to="/dashboard" exact className="brand-title d-inline-block">Lab Analytics Result</NavLink>
                             </Col>
                             <Col xs={18} md={19}>
                                 <Row type="flex" justify="end">
@@ -66,40 +65,7 @@ class App extends React.Component {
                         </Row>
                     </Header>
                     <Layout className="main-layout">
-                        <Sider
-                            trigger={null} 
-                            collapsible
-                            collapsed={this.state.collapsed}
-                            width={200}
-                            >
-                            <Menu
-                                theme="light"
-                                mode="inline"
-                                defaultSelectedKeys={['1']}
-                                defaultOpenKeys={['sub1']}
-                                style={{ height: '100%', borderRight: 0 }}>
-                                <SubMenu
-                                    key="sub1"
-                                    title={<span><Icon type="cloud-server" /><span>EEG Data </span></span>}>
-                                    <Menu.Item key="1">
-                                        <Link to="/eeg/users">By User</Link>
-                                    </Menu.Item>
-                                    <Menu.Item key="2">
-                                        <Link to="/eeg/category">By Category</Link>
-                                    </Menu.Item>
-                                </SubMenu>
-                                <SubMenu
-                                    key="sub2"
-                                    title={<span><Icon type="user" /><span>Questionnaire</span></span>}>
-                                    <Menu.Item key="3">
-                                        <Link to="/questionnaire/pad">PAD List</Link>
-                                    </Menu.Item>
-                                </SubMenu>
-                                <Menu.Item key="4">
-                                    <Icon type="book" /><span>Category Info</span>
-                                </Menu.Item>
-                            </Menu>
-                        </Sider>
+                        <LeftMenu collapsed={this.state.collapsed} />
                         <Layout style={{ padding: '0 15px 15px' }}>
                             <Breadcrumb style={{ margin: '16px 0' }}>
                                 <Breadcrumb.Item>Home</Breadcrumb.Item>
