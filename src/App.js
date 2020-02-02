@@ -100,7 +100,7 @@ class App extends React.Component {
                                 </Menu.Item>
                             </Menu>
                         </Sider>
-                        <Layout style={{ padding: '0 24px 24px' }}>
+                        <Layout style={{ padding: '0 15px 15px' }}>
                             <Breadcrumb style={{ margin: '16px 0' }}>
                                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                                 <Breadcrumb.Item>List</Breadcrumb.Item>
