@@ -1,36 +1,29 @@
-import React from 'react';
-import { Layout, Menu, Breadcrumb, Icon, Row, Col } from 'antd';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    NavLink,
-    Redirect
-} from "react-router-dom";
+import React from 'react'
+import { Layout, Menu, Breadcrumb, Icon, Row, Col } from 'antd'
+import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom'
 
-import LeftMenu from './components/LeftMenu';
-import Dashboard from './pages/dashboard';
-import EegUsers from './pages/eeg/users';
-import EegCategory from './pages/eeg/category';
-import PADList from './pages/questionnaire/pad';
+import LeftMenu from './components/LeftMenu'
+import Dashboard from './pages/dashboard'
+import EegUsers from './pages/eeg/users'
+import EegCategory from './pages/eeg/category'
+import PADList from './pages/questionnaire/pad'
 
-import 'antd/dist/antd.css';
-import './App.css';
+import 'antd/dist/antd.css'
+import './App.css'
 // import logo from './logo.svg';
 
-const { Header, Content, Footer } = Layout;
-
+const { Header, Content, Footer } = Layout
 
 class App extends React.Component {
     state = {
         collapsed: false,
-    };
+    }
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
-        });
-    };
+        })
+    }
 
     render() {
         return (
@@ -44,7 +37,9 @@ class App extends React.Component {
                                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                     onClick={this.toggle}
                                 />
-                                <NavLink to="/dashboard" exact className="brand-title d-inline-block">Lab Analytics Result</NavLink>
+                                <NavLink to="/dashboard" exact className="brand-title d-inline-block">
+                                    Lab Analytics Result
+                                </NavLink>
                             </Col>
                             <Col xs={18} md={19}>
                                 <Row type="flex" justify="end">
@@ -57,7 +52,10 @@ class App extends React.Component {
                                             <Menu.Item key="1">nav 1</Menu.Item>
                                             <Menu.Item key="2">nav 2</Menu.Item>
                                             <Menu.Item key="3">nav 3</Menu.Item>
-                                            <Menu.Item key="4"><Icon type="logout" />Logout</Menu.Item>
+                                            <Menu.Item key="4">
+                                                <Icon type="logout" />
+                                                Logout
+                                            </Menu.Item>
                                         </Menu>
                                     </Col>
                                 </Row>
@@ -92,19 +90,22 @@ class App extends React.Component {
                                     <Route path="/questionnaire/pad">
                                         <PADList />
                                     </Route>
-                                    <Route path='/'>
+                                    <Route path="/">
                                         <Redirect to="/dashboard" />
                                     </Route>
                                 </Switch>
                             </Content>
                             <Footer style={{ textAlign: 'center' }}>
-                                Lab Analytics Result &copy;2020 Created by Win Wu. The UI framework is base on <a href="https://ant.design/" target="_blank" rel="noopener noreferrer">Ant Design</a>
+                                Lab Analytics Result &copy;2020 Created by Win Wu. The UI framework is base on{' '}
+                                <a href="https://ant.design/" target="_blank" rel="noopener noreferrer">
+                                    Ant Design
+                                </a>
                             </Footer>
                         </Layout>
                     </Layout>
                 </Layout>
             </Router>
-        );
+        )
     }
 }
-export default App;
+export default App
