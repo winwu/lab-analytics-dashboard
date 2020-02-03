@@ -8,7 +8,7 @@ class LeftMenu extends React.Component {
     render() {
         const { location, collapsed } = this.props
         return (
-            <Sider trigger={null} collapsible collapsed={collapsed} width={200}>
+            <Sider className="silder-fixed" trigger={null} collapsible collapsed={collapsed}>
                 <Menu
                     theme="light"
                     mode="inline"

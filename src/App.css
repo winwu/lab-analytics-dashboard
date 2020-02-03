@@ -1,6 +1,7 @@
 /* already imported in App.js */
 /* @import '~antd/dist/antd.css'; */
 
+
 .ant-layout-header {
     padding: 0 20px;
 }
@@ -39,4 +40,31 @@
 
 .chart-height {
     height: 250px;
+}
+
+.header-fixed {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+
+.layout-wrapper-adjust {
+    padding: 0 15px;
+    margin-left: 200px;
+    margin-top: 64px;
+    min-height: calc(100vh - 64px); /* 100vh - header's height */
+}
+
+.layout-content {
+    background: '#fff';
+    padding: 24px;
+    margin: 0;
+    min-height: 280px
+}
+
+.silder-fixed {
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    margin-top: 64px;
 }

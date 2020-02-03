@@ -26,7 +26,7 @@ class App extends React.Component {
         return (
             <Router>
                 <Layout>
-                    <Header className="header">
+                    <Header className="header header-fixed">
                         <Row gutter={8}>
                             <Col xs={6} md={5}>
                                 <Icon
@@ -61,13 +61,14 @@ class App extends React.Component {
                     </Header>
                     <Layout className="main-layout">
                         <LeftMenu collapsed={this.state.collapsed} />
-                        <Layout style={{ padding: '0 15px 15px' }}>
+                        <Layout className="layout-wrapper-adjust">
                             <Breadcrumb style={{ margin: '16px 0' }}>
                                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                                 <Breadcrumb.Item>List</Breadcrumb.Item>
                                 <Breadcrumb.Item>App</Breadcrumb.Item>
                             </Breadcrumb>
                             <Content
+                                className="layout-content"
                                 style={{
                                     background: '#fff',
                                     padding: 24,
