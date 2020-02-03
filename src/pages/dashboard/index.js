@@ -4,21 +4,18 @@ import {Doughnut} from 'react-chartjs-2';
 
 const data = {
 	labels: [
-		'Red',
-		'Green',
-		'Yellow'
+		'Valid Dataset',
+		'Invalid Dataset'
 	],
 	datasets: [{
-		data: [300, 50, 100],
+		data: [23, 5],
 		backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
+            '#096dd9',
+            '#868686'
 		],
 		hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
+            '#096dd9',
+            '#868686'
 		]
 	}]
 };
@@ -61,10 +58,10 @@ class Dashboard extends React.Component {
                                 <Statistic title="Total Users" value={23} />
                             </Col>
                             <Col span={8}>
-                                <Statistic title="Available user" value={18} />
+                                <Statistic title="Valid user" value={18} />
                             </Col>
                             <Col span={8}>
-                                <Statistic title="Unavailable user" value={5} />
+                                <Statistic title="Invalid user" value={5} />
                             </Col>
                         </Row>
                     </Col>

@@ -2,11 +2,8 @@ import React from 'react'
 import { Layout, Menu, Breadcrumb, Icon, Row, Col } from 'antd'
 import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom'
 
+import routes from './routes';
 import LeftMenu from './components/LeftMenu'
-import Dashboard from './pages/dashboard'
-import EegUsers from './pages/eeg/users'
-import EegCategory from './pages/eeg/category'
-import PADList from './pages/questionnaire/pad'
 
 import 'antd/dist/antd.css'
 import './App.css'
@@ -78,18 +75,16 @@ class App extends React.Component {
                                     minHeight: 280,
                                 }}>
                                 <Switch>
-                                    <Route path="/dashboard">
-                                        <Dashboard />
-                                    </Route>
-                                    <Route path="/eeg/users">
-                                        <EegUsers />
-                                    </Route>
-                                    <Route path="/eeg/category">
-                                        <EegCategory />
-                                    </Route>
-                                    <Route path="/questionnaire/pad">
-                                        <PADList />
-                                    </Route>
+                                    { routes.map((route, i) => {
+                                        const { path, exact, routes } = route;
+                                        return <Route
+                                            key={i}
+                                            path={path}
+                                            exact={exact}
+                                            render={(routeProps) => (
+                                                <route.component routes={routes} {...routeProps} />
+                                            )}/>;
+                                    })}
                                     <Route path="/">
                                         <Redirect to="/dashboard" />
                                     </Route>
