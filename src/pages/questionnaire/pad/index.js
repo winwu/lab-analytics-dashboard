@@ -9,6 +9,7 @@ const chartBaseConfig = {
         position: 'bottom',
         display: true,
     },
+    maintainAspectRatio: false
 }
 
 const radarConfig = Object.assign({}, chartBaseConfig, {
@@ -17,7 +18,7 @@ const radarConfig = Object.assign({}, chartBaseConfig, {
             suggestedMin: 0,
             suggestedMax: 9,
         },
-    },
+    }
 })
 
 const chartData = {
@@ -183,19 +184,25 @@ class PADList extends React.Component {
                                     <div className="chart-head">
                                         <h4>Pleasure</h4>
                                     </div>
-                                    <Radar data={chartData} options={radarConfig} />
+                                    <div className="chart-height">
+                                        <Radar data={chartData} options={radarConfig} />
+                                    </div>
                                 </Col>
                                 <Col span={8}>
                                     <div className="chart-head">
                                         <h4>Arousal</h4>
                                     </div>
-                                    <Radar data={chartData} options={radarConfig} />
+                                    <div className="chart-height">
+                                        <Radar data={chartData} options={radarConfig} />
+                                    </div>
                                 </Col>
                                 <Col span={8}>
                                     <div className="chart-head">
                                         <h4>Dominance</h4>
                                     </div>
-                                    <Radar data={chartData} options={radarConfig} />
+                                    <div className="chart-height">
+                                        <Radar data={chartData} options={radarConfig} />
+                                    </div>
                                 </Col>
                             </>
                         )}
@@ -207,19 +214,25 @@ class PADList extends React.Component {
                                     <div className="chart-head">
                                         <h4>Pleasure</h4>
                                     </div>
-                                    <HorizontalBar data={chartData} options={chartBaseConfig} />
+                                    <div className="chart-height">
+                                        <HorizontalBar data={chartData} options={chartBaseConfig} />
+                                    </div>
                                 </Col>
                                 <Col span={8}>
                                     <div className="chart-head">
                                         <h4>Arousal</h4>
                                     </div>
-                                    <HorizontalBar data={chartData} options={chartBaseConfig} />
+                                    <div className="chart-height">
+                                        <HorizontalBar data={chartData} options={chartBaseConfig} />
+                                    </div>
                                 </Col>
                                 <Col span={8}>
                                     <div className="chart-head">
                                         <h4>Dominance</h4>
                                     </div>
-                                    <HorizontalBar data={chartData} options={chartBaseConfig} />
+                                    <div className="chart-height">
+                                        <HorizontalBar data={chartData} options={chartBaseConfig} />
+                                    </div>
                                 </Col>
                             </>
                         )}

@@ -36,3 +36,7 @@
 .mb-2 {
     margin-bottom: 20px;
 }
+
+.chart-height {
+    height: 250px;
+}
