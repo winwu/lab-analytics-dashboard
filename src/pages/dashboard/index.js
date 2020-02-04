@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row, Col, Statistic, Divider } from 'antd';
-import {Doughnut} from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
+import Color from 'color';
+import { chartColors } from '../../utils';
 
 const data = {
 	labels: [
@@ -76,15 +78,90 @@ class Dashboard extends React.Component {
                     <Radio.Button value="top">Horizontal</Radio.Button>
                     <Radio.Button value="left">Vertical</Radio.Button>
                 </Radio.Group> */}
-                <Row>
-                    <Col span={8}>
-                        <h4>Gender</h4>
+                <Row gutter={16}>
+                    <Col span={6}>
+                        <div className="chart-head">
+                            <h4>Gender</h4>
+                        </div>
+                        <div style={{ height: '200px'}}>
+                            <Bar
+                                data={{
+                                    labels: ['Male', 'Female'],
+                                    datasets: [
+                                    {
+                                        backgroundColor: Color(chartColors.blue)
+                                            .alpha(0.8)
+                                            .string(),
+                                        borderColor: Color(chartColors.blue).string(),
+                                        borderWidth: 1,
+                                        data: [65, 100, 0]
+                                    }
+                                    ]
+                                }}
+                                options={{
+                                    maintainAspectRatio: false,
+                                    legend: {
+                                        display: false
+                                    }
+                                }}
+                            />
+                        </div>
                     </Col>
-                    <Col span={8}>
-                        <h4>Age</h4>
+                    <Col span={9}>
+                        <div className="chart-head">
+                            <h4>Age</h4>
+                        </div>
+                        <div style={{ height: '200px'}}>
+                            <Bar
+                                data={{
+                                    labels: ['0~10', '11~19', '20~29', '30~39', '40~49'],
+                                    datasets: [
+                                    {
+                                        backgroundColor: Color(chartColors.green)
+                                            .alpha(0.8)
+                                            .string(),
+                                        borderColor: Color(chartColors.green).string(),
+                                        borderWidth: 1,
+                                        data: [2, 4, 7, 10, 5]
+                                    }
+                                    ]
+                                }}
+                                options={{
+                                    maintainAspectRatio: false,
+                                    legend: {
+                                        display: false
+                                    }
+                                }}
+                            />
+                        </div>
                     </Col>
-                    <Col span={8}>
-                        <h4>Dwell time</h4>
+                    <Col span={9}>
+                        <div className="chart-head">
+                            <h4>Dwell time</h4>
+                        </div>
+                        <div style={{ height: '200px'}}>
+                            <Bar
+                                data={{
+                                    labels: ['~30 min', '30~60 min', '60 ~ 120 min', '> 120m'],
+                                    datasets: [
+                                        {
+                                            backgroundColor: Color(chartColors.orange)
+                                                .alpha(0.8)
+                                                .string(),
+                                            borderColor: Color(chartColors.orange).string(),
+                                            borderWidth: 1,
+                                            data: [10, 29, 8, 1]
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    maintainAspectRatio: false,
+                                    legend: {
+                                        display: false
+                                    }
+                                }}
+                            />
+                        </div>
                     </Col>
                 </Row>
             </section>
