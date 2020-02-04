@@ -1,8 +1,8 @@
 import React from 'react'
-import { Row, Col, Statistic, Divider } from 'antd';
+import { Row, Col, Statistic, Divider, Table, Icon } from 'antd';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import Color from 'color';
-import { chartColors } from '../../utils';
+// import { chartColors } from '../../utils';
 
 const data = {
 	labels: [
@@ -12,11 +12,11 @@ const data = {
 	datasets: [{
 		data: [23, 5],
 		backgroundColor: [
-            '#096dd9',
+            Color('#ff9933').alpha(1).string(),
             '#868686'
 		],
 		hoverBackgroundColor: [
-            '#096dd9',
+            Color('#ff9933').alpha(0.8).string(),
             '#868686'
 		]
 	}]
@@ -40,7 +40,15 @@ class Dashboard extends React.Component {
     render() {
         // const { mode } = this.state;
         return (<>
-            <h1>Dashboard</h1>
+            <Row type="flex" align="middle">
+                <Col span={18}>
+                    <h1>Dashboard</h1>
+                </Col>
+                <Col span={6} className="text-right">
+                    <Icon type="sync" /> <span>Last updated: 2020/02/05 00:12:50</span>
+                </Col>
+            </Row>
+
             <h2>Basin Info</h2>
             <section>
                 <Row type="flex" align="middle">
@@ -89,10 +97,10 @@ class Dashboard extends React.Component {
                                     labels: ['Male', 'Female'],
                                     datasets: [
                                     {
-                                        backgroundColor: Color(chartColors.blue)
-                                            .alpha(0.8)
+                                        backgroundColor: Color('#0077c8')
+                                            .alpha(0.7)
                                             .string(),
-                                        borderColor: Color(chartColors.blue).string(),
+                                        borderColor: Color('#0077c8').string(),
                                         borderWidth: 1,
                                         data: [65, 100, 0]
                                     }
@@ -102,10 +110,30 @@ class Dashboard extends React.Component {
                                     maintainAspectRatio: false,
                                     legend: {
                                         display: false
+                                    },
+                                    scales: {
+                                        xAxes: [{
+                                            categoryPercentage: 0.6,
+                                            barPercentage: 0.6
+                                        }]
                                     }
                                 }}
                             />
                         </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>Mele</td>
+                                    <td>Femele</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12</td>
+                                    <td>19</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </Col>
                     <Col span={9}>
                         <div className="chart-head">
@@ -117,12 +145,12 @@ class Dashboard extends React.Component {
                                     labels: ['0~10', '11~19', '20~29', '30~39', '40~49'],
                                     datasets: [
                                     {
-                                        backgroundColor: Color(chartColors.green)
-                                            .alpha(0.8)
+                                        backgroundColor: Color('#2754ba')
+                                            .alpha(0.7)
                                             .string(),
-                                        borderColor: Color(chartColors.green).string(),
+                                        borderColor: Color('#2754ba').string(),
                                         borderWidth: 1,
-                                        data: [2, 4, 7, 10, 5]
+                                        data: [2, 4, 7, 10, 5, 0]
                                     }
                                     ]
                                 }}
@@ -130,6 +158,12 @@ class Dashboard extends React.Component {
                                     maintainAspectRatio: false,
                                     legend: {
                                         display: false
+                                    },
+                                    scales: {
+                                        xAxes: [{
+                                            categoryPercentage: 0.8,
+                                            barPercentage: 0.8
+                                        }]
                                     }
                                 }}
                             />
@@ -145,10 +179,10 @@ class Dashboard extends React.Component {
                                     labels: ['~30 min', '30~60 min', '60 ~ 120 min', '> 120m'],
                                     datasets: [
                                         {
-                                            backgroundColor: Color(chartColors.orange)
-                                                .alpha(0.8)
+                                            backgroundColor: Color('#00aee6')
+                                                .alpha(0.7)
                                                 .string(),
-                                            borderColor: Color(chartColors.orange).string(),
+                                            borderColor: Color('#00aee6').string(),
                                             borderWidth: 1,
                                             data: [10, 29, 8, 1]
                                         }
@@ -158,6 +192,12 @@ class Dashboard extends React.Component {
                                     maintainAspectRatio: false,
                                     legend: {
                                         display: false
+                                    },
+                                    scales: {
+                                        xAxes: [{
+                                            categoryPercentage: 0.8,
+                                            barPercentage: 0.8
+                                        }]
                                     }
                                 }}
                             />

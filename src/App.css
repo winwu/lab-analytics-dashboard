@@ -38,6 +38,10 @@
     margin-bottom: 20px;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .chart-height {
     height: 250px;
 }
