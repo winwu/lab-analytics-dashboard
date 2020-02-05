@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb, Icon, Row, Col } from 'antd'
+import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown } from 'antd'
 import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom'
 
 import routes from './routes';
@@ -10,6 +10,19 @@ import './App.css'
 // import logo from './logo.svg';
 
 const { Header, Content, Footer } = Layout
+
+const menu = (
+    <Menu>
+        <Menu.Item key="0">
+            <a href="#">Setting</a>
+        </Menu.Item>
+        <Menu.Item key="1">
+            <a href="#">Preference</a>
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item key="3">Logout</Menu.Item>
+    </Menu>
+  );
 
 class App extends React.Component {
     state = {
@@ -44,16 +57,23 @@ class App extends React.Component {
                                         <Menu
                                             theme="dark"
                                             mode="horizontal"
-                                            defaultSelectedKeys={['2']}
+                                            // defaultSelectedKeys={['2']}
                                             style={{ lineHeight: '64px' }}>
                                             <Menu.Item key="1">nav 1</Menu.Item>
                                             <Menu.Item key="2">nav 2</Menu.Item>
-                                            <Menu.Item key="3">nav 3</Menu.Item>
+                                            <Menu.Item key="3">
+                                                <Dropdown overlay={menu} trigger={['click']}>
+                                                    <a className="ant-dropdown-link" href="#">
+                                                    Win Wu <Icon type="down" />
+                                                    </a>
+                                                </Dropdown>
+                                            </Menu.Item>
                                             <Menu.Item key="4">
                                                 <Icon type="logout" />
                                                 Logout
                                             </Menu.Item>
                                         </Menu>
+                                        
                                     </Col>
                                 </Row>
                             </Col>
@@ -70,10 +90,7 @@ class App extends React.Component {
                             <Content
                                 className="layout-content"
                                 style={{
-                                    background: '#fff',
-                                    padding: 24,
-                                    margin: 0,
-                                    minHeight: 280,
+                                    
                                 }}>
                                 <Switch>
                                     { routes.map((route, i) => {

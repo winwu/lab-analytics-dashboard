@@ -59,16 +59,21 @@
     min-height: calc(100vh - 64px); /* 100vh - header's height */
 }
 
-.layout-content {
-    background: '#fff';
-    padding: 24px;
-    margin: 0;
-    min-height: 280px
-}
-
 .silder-fixed {
     overflow: auto;
     height: 100vh;
     position: fixed;
     margin-top: 64px;
+}
+
+.silder-fixed.ant-layout-sider-collapsed + .layout-wrapper-adjust {
+    margin-left: 80px;
+    transition: margin .2s ease;
+}
+
+.layout-content {
+    background: #fff;
+    padding: 24px;
+    margin: 0;
+    min-height: 280px
 }

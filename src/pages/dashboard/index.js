@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Statistic, Divider, Table, Icon } from 'antd';
+import { Row, Col, Statistic, Divider, /*Table,*/ Icon } from 'antd';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import Color from 'color';
 // import { chartColors } from '../../utils';
@@ -96,31 +96,27 @@ class Dashboard extends React.Component {
                                 data={{
                                     labels: ['Male', 'Female'],
                                     datasets: [
-                                    {
-                                        backgroundColor: Color('#0077c8')
-                                            .alpha(0.7)
-                                            .string(),
-                                        borderColor: Color('#0077c8').string(),
-                                        borderWidth: 1,
-                                        data: [65, 100, 0]
-                                    }
+                                        {
+                                            backgroundColor: Color('#0077c8')
+                                                .alpha(0.7)
+                                                .string(),
+                                            borderColor: Color('#0077c8').string(),
+                                            borderWidth: 1,
+                                            data: [65, 100, 0],
+                                            categoryPercentage: 0.6,
+                                            barPercentage: 0.6
+                                        }
                                     ]
                                 }}
                                 options={{
                                     maintainAspectRatio: false,
                                     legend: {
                                         display: false
-                                    },
-                                    scales: {
-                                        xAxes: [{
-                                            categoryPercentage: 0.6,
-                                            barPercentage: 0.6
-                                        }]
                                     }
                                 }}
                             />
                         </div>
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <td>Mele</td>
@@ -150,7 +146,9 @@ class Dashboard extends React.Component {
                                             .string(),
                                         borderColor: Color('#2754ba').string(),
                                         borderWidth: 1,
-                                        data: [2, 4, 7, 10, 5, 0]
+                                        data: [2, 4, 7, 10, 5, 0],
+                                        categoryPercentage: 0.8,
+                                        barPercentage: 0.8
                                     }
                                     ]
                                 }}
@@ -158,12 +156,6 @@ class Dashboard extends React.Component {
                                     maintainAspectRatio: false,
                                     legend: {
                                         display: false
-                                    },
-                                    scales: {
-                                        xAxes: [{
-                                            categoryPercentage: 0.8,
-                                            barPercentage: 0.8
-                                        }]
                                     }
                                 }}
                             />
@@ -184,7 +176,9 @@ class Dashboard extends React.Component {
                                                 .string(),
                                             borderColor: Color('#00aee6').string(),
                                             borderWidth: 1,
-                                            data: [10, 29, 8, 1]
+                                            data: [10, 29, 8, 1],
+                                            categoryPercentage: 0.8,
+                                            barPercentage: 0.8
                                         }
                                     ]
                                 }}
@@ -192,12 +186,6 @@ class Dashboard extends React.Component {
                                     maintainAspectRatio: false,
                                     legend: {
                                         display: false
-                                    },
-                                    scales: {
-                                        xAxes: [{
-                                            categoryPercentage: 0.8,
-                                            barPercentage: 0.8
-                                        }]
                                     }
                                 }}
                             />
