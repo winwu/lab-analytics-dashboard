@@ -41,10 +41,10 @@ class Dashboard extends React.Component {
         // const { mode } = this.state;
         return (<>
             <Row type="flex" align="middle">
-                <Col span={18}>
+                <Col span={24} lg={12}>
                     <h1>Dashboard</h1>
                 </Col>
-                <Col span={6} className="text-right">
+                <Col span={24} lg={12} className="text-right">
                     <Icon type="sync" /> <span>Last updated: 2020/02/05 00:12:50</span>
                 </Col>
             </Row>
@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
             <h2>Basin Info</h2>
             <section>
                 <Row type="flex" align="middle">
-                    <Col span={5}>
+                    <Col span={24} lg={5}>
                         <div style={{height: '100px'}}>
                             <Doughnut data={data} options={{
                                 maintainAspectRatio: false,
@@ -62,15 +62,15 @@ class Dashboard extends React.Component {
                             }}/>
                         </div>
                     </Col>
-                    <Col span={8}>
+                    <Col span={24} lg={8}>
                         <Row>
-                            <Col span={8}>
+                            <Col span={8} md={5}>
                                 <Statistic title="Total Users" value={23} />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} md={5}>
                                 <Statistic title="Valid user" value={18} />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} md={5}>
                                 <Statistic title="Invalid user" value={5} />
                             </Col>
                         </Row>
@@ -87,7 +87,7 @@ class Dashboard extends React.Component {
                     <Radio.Button value="left">Vertical</Radio.Button>
                 </Radio.Group> */}
                 <Row gutter={16}>
-                    <Col span={6}>
+                    <Col span={24} lg={6}>
                         <div className="chart-head">
                             <h4>Gender</h4>
                         </div>
@@ -116,7 +116,7 @@ class Dashboard extends React.Component {
                                 }}
                             />
                         </div>
-                        <table className="table">
+                        {/* <table className="table">
                             <thead>
                                 <tr>
                                     <td>Mele</td>
@@ -129,9 +129,9 @@ class Dashboard extends React.Component {
                                     <td>19</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> */}
                     </Col>
-                    <Col span={9}>
+                    <Col span={24} lg={9}>
                         <div className="chart-head">
                             <h4>Age</h4>
                         </div>
@@ -161,7 +161,7 @@ class Dashboard extends React.Component {
                             />
                         </div>
                     </Col>
-                    <Col span={9}>
+                    <Col span={24} lg={9}>
                         <div className="chart-head">
                             <h4>Dwell time</h4>
                         </div>
